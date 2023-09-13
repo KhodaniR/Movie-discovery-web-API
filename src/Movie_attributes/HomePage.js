@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { fetchTopMovies } from '../api';
+import React, { useEffect, useState } from "react";
+import { fetchTopMovies } from "../Api";
+// import {Movie}
+import MovieCard from "./MovieCard";
 
 function HomePage() {
   const [topMovies, setTopMovies] = useState([]);
