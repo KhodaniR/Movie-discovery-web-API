@@ -1,14 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
-const apiKey = a1f531dcd2e039328148cfbbd1423bfc
-const apiUrl = 'https://api.themoviedb.org/3';
+const apiKey = "a1f531dcd2e039328148cfbbd1423bfc";
+const apiUrl = "https://api.themoviedb.org/3";
 
 export const fetchTopMovies = async () => {
   try {
     const response = await axios.get(`${apiUrl}/movie/popular`, {
       params: {
         api_key: apiKey,
-        language: 'en-US', // You can change the language if needed
+        language: "en-US", // You can change the language if needed
         page: 1, // The page number (adjust as needed)
       },
     });
@@ -17,10 +17,10 @@ export const fetchTopMovies = async () => {
     if (response.status === 200) {
       return response.data;
     } else {
-      throw new Error('Failed to fetch top movies');
+      throw new Error("Failed to fetch top movies");
     }
   } catch (error) {
-    console.error('Error fetching top movies:', error);
+    console.error("Error fetching top movies:", error);
     throw error;
   }
 };

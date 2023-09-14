@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetchMovieDetails } from '../api';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { fetchTopMovies as fetchMovieDetails } from "../Api";
 
 function MovieDetails() {
   const { id } = useParams();
@@ -13,7 +13,7 @@ function MovieDetails() {
         setMovie(data);
       } catch (error) {
         // Handle errors here
-        console.error('Error fetching movie details:', error);
+        console.error("Error fetching movie details:", error);
       }
     }
 

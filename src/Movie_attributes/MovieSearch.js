@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { searchMovies } from '../api';
-import MovieCard from './MovieCard';
+import React, { useState } from "react";
+import { fetchTopMovies as searchMovies } from "../Api";
+import MovieCard from "./MovieCard";
 
 function MovieSearch() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async () => {
@@ -12,7 +12,7 @@ function MovieSearch() {
       setSearchResults(data.results);
     } catch (error) {
       // Handle errors here
-      console.error('Error searching for movies:', error);
+      console.error("Error searching for movies:", error);
     }
   };
 
