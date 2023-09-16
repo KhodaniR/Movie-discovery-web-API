@@ -6,14 +6,26 @@ import MovieCard from "./MovieCard";
 function HomePage() {
   const [topMovies, setTopMovies] = useState([]);
 
-  useEffect(() => {
-    async function getTopMovies() {
-      const data = await fetchTopMovies();
-      setTopMovies(data.results);
-    }
-
-    getTopMovies();
-  }, []);
+  Effect(() => {
+    const fetchData = async () => {
+      try {        let apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=2f3d300c8b20dd64c1d363bb91a7daa0`;
+        if(search !==""){
+          apiUrl = `https://api.themoviedb.org/3/search/movie?query=${search}&page=1&api_key=2f3d300c8b20dd64c1d363bb91a7daa0`;
+        }
+        console.log(search);
+        const response =  await fetch(apiUrl);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          const slicedArray = data.results.slice(0, 10);
+          setMovies(slicedArray);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, [search])
 
   return (
     <div>
