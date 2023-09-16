@@ -5,6 +5,7 @@ import MovieCard from "./MovieCard";
 
 function HomePage() {
   const [topMovies, setTopMovies] = useState([]);
+  const [search, setSearch] = useState("");
 
   Effect(() => {
     const fetchData = async () => {
