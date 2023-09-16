@@ -7,7 +7,7 @@ function HomePage() {
   const [topMovies, setTopMovies] = useState([]);
   const [search, setSearch] = useState("");
 
-  Effect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {        let apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=2f3d300c8b20dd64c1d363bb91a7daa0`;
         if(search !==""){
